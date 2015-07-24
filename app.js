@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('MediaApp', ['ngRoute'])
+		.module('MediaApp', ['ngRoute', 'ngCookies'])
 		.config(config);
 
 	config.$inject = ['$routeProvider', '$locationProvider'];
