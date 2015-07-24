@@ -1,25 +1,41 @@
-<div class="row">
-	<div ng-if="vm.videoIndex < 0 && video.name != 'cover.jpg'" class="col-sm-6 col-md-2" ng-repeat="video in vm.folder">
-		<a href="" ng-click="vm.openIndex($index)">
-			<div class="thumbnail">
-				<img ng-if="video.type == 'directory'" ng-src="/Videos/{{ video.path }}/cover.jpg" style="max-height:200px;" />
-				<img ng-if="video.type == 'file'" src="video-37342_640.png" style="max-height:200px;" />
-				<div class="caption">
-					<h3>{{ video.name }}</h3>
-				</div>
-			</div>
-		</a>
+<div class="container-fluid">
+	<div ng-if="vm.videoIndex < 0" class="watched-last">
+		<h4>Last episode watched:</h4>
+		<p class="media">
+			{{ vm.lastVideoWatched }}
+		</p>
+		<button class="btn btn-primary resume-btn" ng-click="vm.resumeSource(vm.lastVideoWatched)">Resume</button>
 	</div>
-	<div ng-if="vm.videoIndex >= 0" class="col-sm-6 col-md-4 col-md-offset-4">
-		{{ vm.videoName }}
-		<video controls>
-			<source ng-src="{{ vm.videoSrc }}" type="video/mp4">
-		</video>
-		<nav>
-			<ul class="pager">
-				<li><a href="" ng-click="vm.playIndex(vm.videoIndex - 1)">Previous</a></li>
-				<li><a href="" ng-click="vm.playIndex(vm.videoIndex + 1)">Next</a></li>
-			</ul>
-		</nav>
+
+	<div ng-if="vm.videoIndex < 0 && video.name != 'cover.jpg'" class="media" ng-repeat="video in vm.folder">
+		<div class="media-left media-bottom">
+			<a href="" ng-click="vm.openIndex($index)">
+				<img class="media-object" ng-if="video.type == 'directory'" ng-src="video-37342_640.png" style="max-height: 64px;" />
+				<img class="media-object" ng-if="video.type == 'file'" src="video-37342_640.png" style="max-height: 64px;" />
+			</a>
+		</div>
+
+		<div class="media-body">
+			<h4 class="media-heading">{{ video.name }}</h4>
+		</div>
+	</div>
+
+	<div ng-if="vm.videoIndex >= 0" class="text-center">
+		<div class="">
+			{{ vm.videoName }}
+		</div>
+		<div class="">
+			<video controls>
+				<source ng-src="{{ vm.videoSrc }}" type="video/mp4">
+			</video>
+		</div>
+		<div class="">
+			<nav>
+				<ul class="pager">
+					<li><a href="" ng-click="vm.playIndex(vm.videoIndex - 1)">Previous</a></li>
+					<li><a href="" ng-click="vm.playIndex(vm.videoIndex + 1)">Next</a></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 </div>

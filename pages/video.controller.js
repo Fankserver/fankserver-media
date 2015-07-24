@@ -5,13 +5,17 @@
 		.module('MediaApp')
 		.controller('VideoController', VideoController);
 
-	VideoController.$inject = ['$scope', '$http'];
-	function VideoController($scope, $http) {
+	VideoController.$inject = ['$cookieStore', '$rootScope', '$scope', '$http'];
+	function VideoController($cookieStore, $rootScope, $scope, $http) {
 		var vm = this;
+
+		$rootScope.globals = $cookieStore.get('globals');
+		vm.lastVideoWatched = $rootScope.globals.lastVideoWatched;
 
 		vm.getFolderContent = getFolderContent;
 		vm.openIndex = openIndex;
 		vm.playIndex = playIndex;
+		vm.resumeSource = resumeSource;
 
 		vm.folderStack = [];
 		vm.folder = [];
@@ -56,8 +60,21 @@
 				vm.videoSrc = videoSource;
 			}
 
+			$rootScope.globals = {
+				lastVideoWatched: videoSource
+			};
+
+			$cookieStore.put('globals', $rootScope.globals);
+
 			vm.videoIndex = index;
 			vm.videoName = vm.folder[index].name;
+		}
+
+		function resumeSource(source) {
+			vm.videoIndex = 0;
+			var myVideo = document.getElementsByTagName('video')[0];
+			myVideo.src = source;
+			myVideo.load();
 		}
 	}
 })();

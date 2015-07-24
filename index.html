@@ -2,15 +2,31 @@
 <html ng-app="MediaApp">
 	<head>
 		<title>Mediacontainer</title>
-		<script src="//code.angularjs.org/1.2.20/angular.js"></script>
-		<script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
-		<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
-		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script src="/app.js"></script>
-		<script src="/pages/music.controller.js"></script>
-		<script src="/pages/video.controller.js"></script>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+		<script src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
+		<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+		<script src="app.js"></script>
+		<script src="pages/music.controller.js"></script>
+		<script src="pages/video.controller.js"></script>
 	</head>
-	<body ng-view></body>
+	<body>
+		<div>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#/">Fankserver - Mediacontainer</a>
+					<ul class="nav navbar-nav">
+						<li><a href="#/Video">Video</a></li>
+						<li><a href="#/Music">Music</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div style="margin: 70px 20px 20px 20px" ng-view>
+
+		</div>
+	</body>
 </html>
