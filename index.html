@@ -1,32 +1,20 @@
-<!DOCTYPE html>
-<html ng-app="MediaApp">
-	<head>
-		<title>Mediacontainer</title>
-		<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-		<script src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
-		<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-		<script src="app.js"></script>
-		<script src="pages/music.controller.js"></script>
-		<script src="pages/video.controller.js"></script>
-	</head>
-	<body>
-		<div>
-			<nav class="navbar navbar-inverse navbar-fixed-top">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="#/">Fankserver - Mediacontainer</a>
-					<ul class="nav navbar-nav">
-						<li><a href="#/Video">Video</a></li>
-						<li><a href="#/Music">Music</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
+<!-- index.html -->
+<html>
+<head>
+	<title>Angular 2 Quickstart</title>
+	<script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
+	<script src="https://jspm.io/system@0.16.js"></script>
+	<script src="https://code.angularjs.org/2.0.0-alpha.33/angular2.dev.js"></script>
+	<script src="https://code.angularjs.org/2.0.0-alpha.33/router.dev.js"></script>
+	<base href="/">
+	<!-- ignore: Aplha 32 router fix -->
+	<script>baseElement = document.querySelector('base');baseElement.attr = baseElement.getAttribute;</script>
+</head>
+<body>
 
-		<div style="margin: 70px 20px 20px 20px" ng-view>
+	<!-- The app component created in app.ts -->
+	<app>Starting mediacenter...</app>
 
-		</div>
-	</body>
+	<script>System.import('index');</script>
+</body>
 </html>
