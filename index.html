@@ -1,20 +1,22 @@
 <!-- index.html -->
 <html>
 <head>
-	<title>Angular 2 Quickstart</title>
-	<script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
-	<script src="https://jspm.io/system@0.16.js"></script>
-	<script src="https://code.angularjs.org/2.0.0-alpha.33/angular2.dev.js"></script>
-	<script src="https://code.angularjs.org/2.0.0-alpha.33/router.dev.js"></script>
+	<title>Fankserver Mediacontainer</title>
+	<script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.91/traceur-runtime.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
+	<script>
+		System.config({
+			defaultJSExtensions: true
+		});
+	</script>
+	<script src="https://code.angularjs.org/2.0.0-alpha.37/angular2.js"></script>
+	<script src="https://code.angularjs.org/2.0.0-alpha.37/http.dev.js"></script>
+	<script src="https://code.angularjs.org/2.0.0-alpha.37/router.dev.js"></script>
 	<base href="/">
-	<!-- ignore: Aplha 32 router fix -->
-	<script>baseElement = document.querySelector('base');baseElement.attr = baseElement.getAttribute;</script>
 </head>
 <body>
-
 	<!-- The app component created in app.ts -->
 	<app>Starting mediacenter...</app>
-
 	<script>System.import('index');</script>
 </body>
 </html>
