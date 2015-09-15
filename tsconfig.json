@@ -21,10 +21,11 @@
     ],
     "files": [
         "./app/app.ts",
-        "./app/controllers/videoController.ts",
+        "./app/services/directoryService.ts",
         "./app/services/videoService.ts",
-        "./index.ts",
+        "./app/video/videoController.ts",
         "./typings/angular2/angular2.d.ts",
+        "./typings/angular2/http.d.ts",
         "./typings/angular2/router.d.ts",
         "./typings/es6-promise/es6-promise.d.ts",
         "./typings/rx/rx-lite.d.ts",
