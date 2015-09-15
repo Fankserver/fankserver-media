@@ -21,9 +21,8 @@
     ],
     "files": [
         "./app/app.ts",
-        "./app/services/directoryService.ts",
-        "./app/services/videoService.ts",
-        "./app/video/videoController.ts",
+        "./app/folder/folder.ts",
+        "./app/services/folderService.ts",
         "./typings/angular2/angular2.d.ts",
         "./typings/angular2/http.d.ts",
         "./typings/angular2/router.d.ts",

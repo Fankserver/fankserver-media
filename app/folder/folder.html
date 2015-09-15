@@ -1,0 +1,27 @@
+<ol class="breadcrumb">
+	<li *ng-for="#folder of _currentFolder #i=index"><a href="#" (click)="setFolderIndex(i)">{{folder}}</a></li>
+	<li *ng-if="_activeIndex >= 0" class="active">{{_folderContent[_activeIndex].name}}</li>
+</ol>
+<div class="row" *ng-if="_activeIndex < 0">
+	<div *ng-for="#entry of _folderContent #i=index" class="col-xs-6 col-md-3">
+		<a class="thumbnail" href="#" (click)="setIndex(i)">
+			<img *ng-if="entry.type != 'file'" [src]="'/images/folder.png'" [alt]="entry.name">
+			<img *ng-if="entry.type == 'file'" [src]="'/images/document-file-' + getExtension(entry.name) + '.png'" [alt]="entry.name">
+			{{entry.name}}
+		</a>
+	</div>
+</div>
+<div *ng-if="_activeIndex >= 0">
+	<div class="embed-responsive embed-responsive-16by9">
+		<video *ng-if="getExtension(_folderContent[_activeIndex].name) == 'mp4'" class="embed-responsive-item" controls>
+			<source [src]="getFolderFormat('') + _folderContent[_activeIndex].name" type="video/mp4" />
+		</video>
+		<img *ng-if="getExtension(_folderContent[_activeIndex].name) == 'jpg'" [src]="getFolderFormat('') + _folderContent[_activeIndex].name" alt="_folderContent[_activeIndex].name" />
+	</div>
+	<nav>
+		<ul class="pager">
+			<li *ng-if="_activeIndex > 0"><a href="#" (click)="setIndex(_activeIndex - 1)">Previous</a></li>
+			<li *ng-if="_activeIndex < (_folderContent.length - 1)"><a href="#" (click)="setIndex(_activeIndex + 1)">Next</a></li>
+		</ul>
+	</nav>
+</div>

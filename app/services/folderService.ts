@@ -1,8 +1,7 @@
-/// <reference path="typings/angular2/http.d.ts"/>
-import {Inject, View, NgFor} from "angular2/angular2";
+import {Inject} from "angular2/angular2";
 import {Http} from "angular2/http";
 
-export class DirectoryService {
+export class FolderService {
 	_http: Http;
 
 	constructor(@Inject(Http) http: Http) {
