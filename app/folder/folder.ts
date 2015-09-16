@@ -28,7 +28,7 @@ export class FolderController {
 	}
 
 	onInit() {
-		this.getFolder("Videos");
+		this.getFolder("");
 	}
 
 	getFolder(folder: string) {
@@ -42,7 +42,7 @@ export class FolderController {
 			this._folderStack.push(folder);
 		}
 
-		return "http://" + this._currentHostname + "/" + this._folderStack.join("/") + "/";
+		return "http://" + this._currentHostname + "/" + this._folderStack.join("/");
 	}
 
 	getExtension(filename: string) {

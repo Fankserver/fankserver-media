@@ -13,8 +13,8 @@
 </div>
 <div *ng-if="_activeIndex >= 0">
 	<div class="embed-responsive embed-responsive-16by9">
-		<video *ng-if="isVideo(getExtension(_folderContent[_activeIndex].name))" class="embed-responsive-item" controls [fs-video]="getFolderFormat('') + _folderContent[_activeIndex].name"></video>
-		<img *ng-if="isImage(getExtension(_folderContent[_activeIndex].name))" [src]="getFolderFormat('') + _folderContent[_activeIndex].name" alt="_folderContent[_activeIndex].name" />
+		<video *ng-if="isVideo(getExtension(_folderContent[_activeIndex].name))" class="embed-responsive-item" controls [fs-video]="getFolderFormat('') + '/' + _folderContent[_activeIndex].name"></video>
+		<img *ng-if="isImage(getExtension(_folderContent[_activeIndex].name))" [src]="getFolderFormat('') + '/' + _folderContent[_activeIndex].name" alt="_folderContent[_activeIndex].name" />
 	</div>
 	<nav>
 		<ul class="pager">
