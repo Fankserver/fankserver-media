@@ -1,12 +1,12 @@
 <ol class="breadcrumb">
 	<li *ng-for="#folder of _folderStack #i=index"><a href="#" (click)="setFolderIndex(i)">{{folder}}</a></li>
-	<li *ng-if="_activeIndex >= 0" class="active">{{_folderContent[_activeIndex].name}}</li>
+	<li *ng-if="_activeIndex >= 0" class="active">&nbsp;[ {{_folderContent[_activeIndex].name}} ]</li>
 </ol>
 <div class="row" *ng-if="_activeIndex < 0">
 	<div *ng-for="#entry of _folderContent #i=index" class="col-xs-6 col-md-3">
 		<a class="thumbnail" href="#" (click)="setIndex(i)">
-			<img *ng-if="entry.type != 'file'" [src]="'/images/folder.png'" [alt]="entry.name">
-			<img *ng-if="entry.type == 'file'" [src]="'/images/document-file-' + getExtension(entry.name) + '.png'" [alt]="entry.name">
+			<img *ng-if="entry.type != 'file'" [src]="'/images/folder.png'" [alt]="entry.name" />
+			<img *ng-if="entry.type == 'file'" [src]="'/images/document-file-' + getExtension(entry.name) + '.png'" [alt]="entry.name" />
 			{{entry.name}}
 		</a>
 	</div>
