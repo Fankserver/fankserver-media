@@ -42,7 +42,7 @@ export class FolderController {
 			this._folderStack.push(folder);
 		}
 
-		return "http://" + this._currentHostname + "/" + this._folderStack.join("/");
+		return window.location.protocol + "//" + this._currentHostname + "/" + this._folderStack.join("/");
 	}
 
 	getExtension(filename: string) {
