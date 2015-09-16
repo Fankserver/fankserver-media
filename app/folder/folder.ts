@@ -1,7 +1,7 @@
 import {Component, View, NgFor, NgIf} from "angular2/angular2";
-import {Http} from "angular2/http";
 import {Router} from "angular2/router";
 
+import {FsVideo} from "./video";
 import {FolderService} from "../services/folderService";
 
 @Component({
@@ -9,11 +9,11 @@ import {FolderService} from "../services/folderService";
 })
 @View({
 	templateUrl: "/app/folder/folder.html",
-	directives: [NgFor, NgIf]
+	directives: [FsVideo, NgFor, NgIf]
 })
 export class FolderController {
 	_folderService: FolderService;
-	_currentFolder: Array<string>;
+	_folderStack: Array<string>;
 	_currentHostname: string;
 	_folderContent: Array<any>;
 	_activeIndex: number;
@@ -21,7 +21,7 @@ export class FolderController {
 	constructor(router: Router, folderService: FolderService) {
 		this._folderService = folderService;
 
-		this._currentFolder = [];
+		this._folderStack = [];
 		this._currentHostname = "1.mediacontainer.fankservercdn.com";
 		this._folderContent = [];
 		this._activeIndex = -1;
@@ -39,14 +39,14 @@ export class FolderController {
 
 	getFolderFormat(folder: string): string {
 		if (folder != "") {
-			this._currentFolder.push(folder);
+			this._folderStack.push(folder);
 		}
 
-		return "http://" + this._currentHostname + "/" + this._currentFolder.join("/") + "/";
+		return "http://" + this._currentHostname + "/" + this._folderStack.join("/") + "/";
 	}
 
 	getExtension(filename: string) {
-		return filename.split(".").pop();
+		return filename ? filename.split(".").pop() : "";
 	}
 
 	setIndex(index: number) {
@@ -64,7 +64,14 @@ export class FolderController {
 	}
 
 	setFolderIndex(index: number) {
-		this._currentFolder.splice(index + 1, this._currentFolder.length - index);
+		this._folderStack.splice(index + 1, this._folderStack.length - index);
 		this.getFolder("");
+	}
+
+	isVideo(extension: string) {
+		return extension ? extension.match(/mp4|avi/) : null;
+	}
+	isImage(extension: string) {
+		return extension ? extension.match(/jpg|png|gif/) : null;
 	}
 }

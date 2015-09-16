@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-	<li *ng-for="#folder of _currentFolder #i=index"><a href="#" (click)="setFolderIndex(i)">{{folder}}</a></li>
+	<li *ng-for="#folder of _folderStack #i=index"><a href="#" (click)="setFolderIndex(i)">{{folder}}</a></li>
 	<li *ng-if="_activeIndex >= 0" class="active">{{_folderContent[_activeIndex].name}}</li>
 </ol>
 <div class="row" *ng-if="_activeIndex < 0">
@@ -13,10 +13,8 @@
 </div>
 <div *ng-if="_activeIndex >= 0">
 	<div class="embed-responsive embed-responsive-16by9">
-		<video *ng-if="getExtension(_folderContent[_activeIndex].name) == 'mp4'" class="embed-responsive-item" controls>
-			<source [src]="getFolderFormat('') + _folderContent[_activeIndex].name" type="video/mp4" />
-		</video>
-		<img *ng-if="getExtension(_folderContent[_activeIndex].name) == 'jpg'" [src]="getFolderFormat('') + _folderContent[_activeIndex].name" alt="_folderContent[_activeIndex].name" />
+		<video *ng-if="isVideo(getExtension(_folderContent[_activeIndex].name))" class="embed-responsive-item" controls [fs-video]="getFolderFormat('') + _folderContent[_activeIndex].name"></video>
+		<img *ng-if="isImage(getExtension(_folderContent[_activeIndex].name))" [src]="getFolderFormat('') + _folderContent[_activeIndex].name" alt="_folderContent[_activeIndex].name" />
 	</div>
 	<nav>
 		<ul class="pager">
