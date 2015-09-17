@@ -1,32 +1,23 @@
-<!DOCTYPE html>
-<html ng-app="MediaApp">
-	<head>
-		<title>Mediacontainer</title>
-		<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-		<script src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
-		<script src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-		<script src="app.js"></script>
-		<script src="pages/music.controller.js"></script>
-		<script src="pages/video.controller.js"></script>
-	</head>
-	<body>
-		<div>
-			<nav class="navbar navbar-inverse navbar-fixed-top">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="#/">Fankserver - Mediacontainer</a>
-					<ul class="nav navbar-nav">
-						<li><a href="#/Video">Video</a></li>
-						<li><a href="#/Music">Music</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-
-		<div style="margin: 70px 20px 20px 20px" ng-view>
-
-		</div>
-	</body>
+<!-- index.html -->
+<html>
+<head>
+	<title>Fankserver Mediacontainer</title>
+	<script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.91/traceur-runtime.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
+	<script>
+		System.config({
+			defaultJSExtensions: true
+		});
+	</script>
+	<script src="//code.angularjs.org/2.0.0-alpha.37/angular2.js"></script>
+	<script src="//code.angularjs.org/2.0.0-alpha.37/http.dev.js"></script>
+	<script src="//code.angularjs.org/2.0.0-alpha.37/router.dev.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<base href="/">
+</head>
+<body>
+	<!-- The app component created in app.ts -->
+	<app>Starting mediacenter...</app>
+	<script>System.import('app/app');</script>
+</body>
 </html>
