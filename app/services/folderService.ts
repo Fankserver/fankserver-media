@@ -1,10 +1,11 @@
-import {Inject} from "angular2/angular2";
+import {Injectable} from "angular2/angular2";
 import {Http} from "angular2/http";
 
+@Injectable()
 export class FolderService {
 	_http: Http;
 
-	constructor(@Inject(Http) http: Http) {
+	constructor(http: Http) {
 		this._http = http;
 	}
 
